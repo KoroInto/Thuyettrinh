@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Page 5 – So sánh</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --neon1: #ffffff;
+      --bg-alpha: 0.12;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Container chính: căn giữa cả chiều dọc và ngang */
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      width:100%;
+      max-width:1100px;
+      background: rgba(0,0,0,var(--bg-alpha)); /* mờ để nhìn xuyên nền */
+      border-radius:14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.03) inset;
+      padding:28px;
+      backdrop-filter: blur(8px);
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      font-size:28px;
+      text-align:center;
+      letter-spacing:0.6px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.12);
+      font-weight:700;
+    }
+
+    p.lead{
+      margin:0 0 18px 0;
+      text-align:center;
+      opacity:0.9;
+      font-size:15px;
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* Bảng */
+    .table-wrapper{
+      overflow:auto;
+      margin-top:6px;
+    }
+
+    table.compare {
+      width:100%;
+      border-collapse:collapse;
+      min-width:820px; /* nếu màn hình nhỏ cho scroll ngang */
+    }
+
+    table.compare thead th{
+      text-align:left;
+      font-size:15px;
+      padding:12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+    }
+
+    table.compare tbody td{
+      padding:14px;
+      vertical-align:top;
+      border-bottom: 1px dashed rgba(255,255,255,0.04);
+      font-size:15px;
+      line-height:1.5;
+      color: rgba(255,255,255,0.95);
+    }
+
+    table.compare tbody tr:last-child td{
+      border-bottom: none;
+    }
+
+    /* Nhấn mạnh bold và glow cho từ khóa */
+    strong {
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.12);
+    }
+
+    /* Link nguồn nhỏ */
+    .source{
+      margin-top:12px;
+      font-size:13px;
+      color: rgba(255,255,255,0.75);
+      text-align:right;
+    }
+
+    .source a{
+      color: rgba(255,255,255,0.9);
+      text-decoration:underline;
+    }
+
+    /* Responsive: thu hẹp font trên màn nhỏ */
+    @media (max-width:720px){
+      h1{ font-size:22px; }
+      table.compare thead th, table.compare tbody td { font-size:14px; padding:10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="So sánh quang phổ vạch phát xạ và quang phổ vạch hấp thụ">
+      <h1>So sánh: Quang phổ vạch phát xạ vs Quang phổ vạch hấp thụ</h1>
+      <p class="lead">Bảng tóm tắt các tiêu chí chính.</p>
+
+      <div class="table-wrapper" tabindex="0">
+        <table class="compare" role="table" aria-label="Bảng so sánh">
+          <thead>
+            <tr>
+              <th scope="col">Tiêu chí</th>
+              <th scope="col">Quang phổ vạch phát xạ</th>
+              <th scope="col">Quang phổ vạch hấp thụ</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><strong>Hình ảnh phổ</strong></td>
+              <td>Các <strong>vạch sáng</strong> trên nền tối.</td>
+              <td>Các <strong>vạch tối</strong> trên nền liên tục (sáng).</td>
+            </tr>
+
+            <tr>
+              <td><strong>Điều kiện thu</strong></td>
+              <td>Khí/hơi nguyên tử bị kích thích (nhiệt, điện, hồ quang) → phát xạ.</td>
+              <td>Ánh sáng trắng đi qua khí/hơi ở nhiệt độ thấp hơn → hấp thụ các bước sóng nhất định.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Vị trí vạch</strong></td>
+              <td>Vạch sáng xuất hiện tại các bước sóng đặc trưng của nguyên tử.</td>
+              <td>Vạch tối xuất hiện <strong>trùng vị trí</strong> với vạch sáng của nguyên tử đó.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Nguồn phổ</strong></td>
+              <td>Hơi nguyên tử hoặc khí nguyên tố bị kích thích.</td>
+              <td>Ánh sáng liên tục (nguồn sáng mạnh) đi qua lớp khí/hơi hấp thụ.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Ứng dụng chủ yếu</strong></td>
+              <td>Xác định nguyên tố, đo nồng độ — phân tích phát xạ.</td>
+              <td>Xác định nguyên tố, phân tích hấp thụ, thiên văn học (thí dụ: quang phổ mặt trời).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="source">
+        Nguồn tham khảo: <a href="https://www.youtube.com/watch?v=i_3JRTX054w" target="_blank" rel="noopener noreferrer">PornHub</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

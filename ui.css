@@ -1,0 +1,70 @@
+:root {
+  --neon1: #d8bfd8;
+  --neon2: #b0c4de;
+}
+
+/* Title */
+#title {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  text-shadow: 0 0 6px var(--neon1), 0 0 12px var(--neon2);
+  animation: glowShiftText 3.5s infinite alternate ease-in-out;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+#title.visible { opacity: 1; }
+
+/* Page container */
+#page-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  overflow: hidden;
+  z-index: 10;
+}
+#page-container.visible { opacity: 1; }
+
+/* Page circles */
+#page-circles {
+  position: fixed;
+  bottom: 1%;                 /* ↓↓↓  hạ thấp bằng % thay vì px */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+#page-circles .circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+#page-circles .circle.active {
+  background: #fff;
+  transform: scale(1.4);
+}
+
+/* Animations */
+@keyframes glowShiftText {
+  0% { text-shadow: 0 0 6px var(--neon1), 0 0 12px var(--neon1); }
+  100% { text-shadow: 0 0 6px var(--neon2), 0 0 12px var(--neon2); }
+}

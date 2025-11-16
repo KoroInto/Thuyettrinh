@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outro Credits</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow: hidden !important;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 61%,
+                rgba(0, 0, 0, 0.54) 79%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            z-index: 1;
+        }
+
+        .stars {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background-color: #fff;
+            z-index: 2;
+        }
+
+        .intro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: rgb(75, 213, 238);
+            font-family: "Open Sans", sans-serif;
+            font-weight: 500;
+            font-size: 3.25rem;
+            width: 80%;
+            opacity: 0;
+            animation: intro 10s ease-out 1s;
+            text-align: center;
+        }
+
+        @keyframes intro {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 100%;
+            opacity: 0;
+            animation: logo 14s ease-out 12s;
+        }
+
+        .logo img {
+            width: inherit;
+        }
+
+        @keyframes logo {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(2);
+            }
+            60% { opacity: 1; }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+        }
+
+        p { color: #ffe81f; }
+
+        #scroller {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 230%;
+            text-align: justify;
+            overflow: hidden;
+            height: 60em;
+            width: 22em;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -11em;
+            z-index: 0;
+            transform: perspective(350px) rotateX(25deg);
+            transform-origin: 50% 100%;
+        }
+
+        #content {
+            position: absolute;
+            top: 100%;
+            animation: scroller 240s linear 28s;
+        }
+
+        @keyframes scroller {
+            0% { top: 100%; }
+            100% { top: -350%; }
+        }
+
+        #title, #subtitle {
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+        #subtitle {
+            text-transform: uppercase;
+            font-size: 3.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NHẠC STAR WARS – TỰ CHẠY, KHÔNG LOOP -->
+    <audio id="bgm" src="Starwar.mp3"></audio>
+
+    <section class="intro">
+        A long time ago, in a galaxy far,<br> far away....
+    </section>
+
+    <section class="logo">
+        <img src="logo.png" alt="Star Wars Logo">
+    </section>
+
+    <div id="scroller">
+        <div id="content">
+
+            <p id="title">EPISODE END</p>
+            <p id="subtitle">CREDITS</p>
+            <br><br>
+
+            <!-- ==================================== -->
+            <!--               CREDIT TEXT             -->
+            <!-- ==================================== -->
+
+            <p><b>1. Ban Điều Hành & Quản Lý</b><br><br>
+            Tổng sản xuất: Nguyễn Tấn Tiệp<br>
+            Đồng sản xuất: Model K2-65B (LLM360 K2)<br>
+            Trợ lý sản xuất: Tấn Tiệp Nguyễn<br>
+            Giám đốc dự án: Nguyễn Tiệp Tấn<br>
+            Quản lý sản xuất: Tấn Nguyễn Tiệp<br>
+            Điều phối dự án: Nguyễn Tấn Tiệp<br>
+            Trợ lý điều phối: Tấn Tiệp Nguyễn<br>
+            Hỗ trợ sản xuất: Tiệp Nguyễn Tấn</p>
+
+            <p><b>2. Định Hướng Sáng Tạo</b><br><br>
+            Giám đốc sáng tạo: Kuru<br>
+            Giám đốc mỹ thuật: KuruKuru<br>
+            Phó giám đốc mỹ thuật: Ruku<br>
+            Trưởng bộ phận phát triển hình ảnh: RukuRuku<br>
+            Họa sĩ concept: Yoneyama Mai<br>
+            Người dựng styleframe: Notch</p>
+
+            <p><b>3. Biên Kịch & Nghiên Cứu</b><br><br>
+            Trưởng nhóm biên kịch: Vaporeon<br>
+            Biên kịch phụ: Vaporeon<br>
+            Biên tập kịch bản: Vaporeon<br>
+            Nhóm nghiên cứu: Vaporeon<br>
+            Nhóm kiểm chứng thông tin: Vaporeon<br>
+            Cố vấn thuật ngữ: Gadevoir<br>
+            Cố vấn nội dung: Gadevoir</p>
+
+            <p><b>4. Mỹ Thuật & Thiết Kế</b><br><br>
+            Thiết kế nhân vật: FreeFireMax<br>
+            Thiết kế bối cảnh: Area of Valor<br>
+            Thiết kế UI/UX: Geometry Dash<br>
+            Họa sĩ minh họa: Osu!<br>
+            Họa sĩ texture: Persona5<br>
+            Thiết kế bố cục slide: JSaB<br>
+            Chuyên gia typography: Helltaker<br>
+            Chuyên gia phối màu: Dog Princess<br>
+            Thiết kế đồ họa: DeltaRune<br>
+            Motion Designer: Silent Hill f<br>
+            VFX Artist: AngryBird</p>
+
+            <p><b>5. 3D & Hoạt Hình</b><br><br>
+            Lập mô hình 3D: Miku<br>
+            High-poly: Teto<br>
+            Low-poly: Jotaro<br>
+            Retopology: Senko<br>
+            Rigger: Bocchi<br>
+            Animator: Songoku<br>
+            Compositor: Muzan<br>
+            Kỹ sư ánh sáng: Han Solo<br>
+            Kỹ sư render: Luke Skywalker</p>
+
+            <p><b>6. Lập Trình & Web</b><br><br>
+            Full-stack: Yoostar<br>
+            UI Engineer: Midog<br>
+            WebGL: BYiStudio<br>
+            Tối ưu hiệu năng: KuroGame<br>
+            QA: Garena<br>
+            Build & deploy: Nexon<br>
+            Version control: Bandai Namco</p>
+
+            <p><b>7. Âm Thanh & Âm Nhạc</b><br><br>
+            Nhạc sĩ: Michael Jackson<br>
+            Trợ lý: G-dragon<br>
+            Sound Designer: BTS<br>
+            Foley Artist: BlackPink<br>
+            Mix: AlanWalker<br>
+            Master: TheFatRat<br>
+            Thu âm: Kim Jon Un<br>
+            Voice Acting: Donald Trump</p>
+
+            <p><b>8. Hậu Cần Kỹ Thuật</b><br><br>
+            Tài nguyên: Disk C 500mb usable<br>
+            Backup: Ctrl SSSSS<br>
+            Lưu trữ: Folder My homework<br>
+            Technical Director: VsCode<br>
+            Render farm: Vulkan 1.3<br>
+            Cloud storage: GGdrive<br>
+            Tester: Oppo A5s 3.5 củ</p>
+
+            <p><b>9. Kiểm Thử & Đánh Giá</b><br><br>
+            Tester trải nghiệm: Arch Linux<br>
+            Reviewer UI/UX: Pc 5 củ<br>
+            Kiểm tra nhất quán: Pc 5 củ<br>
+            Accessibility: Pc 5 củ<br>
+            Stress Test: Pc 5 củ</p>
+
+            <p><b>10. Tài Liệu & Hỗ Trợ</b><br><br>
+            Viết tài liệu: ChatSkibidi<br>
+            Dịch slide: Compilot<br>
+            Kiểm tra bản địa hóa: Grok<br>
+            Ghi biên bản: DeepSeek<br>
+            Điều phối lịch: ZaiAI<br>
+            Điều chỉnh nhiệt độ phòng: Nguyễn Tấn Tiệp</p>
+
+            <p><b>11. Marketing & Phát Hành</b><br><br>
+            Truyền thông: Elon Musk<br>
+            Thương hiệu: Mark Zuckerberg<br>
+            Trailer editor: Sam Altman<br>
+            Thumbnail: StarWar<br>
+            Điều phối phát hành: Konami</p>
+
+            <p><b>12. Lời Cảm Ơn Đặc Biệt</b><br><br>
+            Tổ đội Lào: Laogicungton<br>
+            Vừa LỌ vừa làm: Nguyễn Tấn Tiệp<br>
+            Cổ động viên: Anhbatocum<br>
+            Thiết bị sống sót đến lúc xuất file: Nước Lọc<br>
+            Vợ: Senko<br>
+            Nhà tài trợ ổ điện + wifi: FB888<br>
+            Fanza:https://www.dmm.co.jp/digital/Adudu/b<br>
+            Patreon:https://www.patreon.com/pixdo<br>
+            OnlyFan:https://onlyfans.com/jarbaobel<br>
+            PornHub:https://www.pornhub.com/pornstar/Kumori<br>
+            Fanbox:https://www.fanbox.cc/@willimon</p>
+
+        </div>
+    </div>
+
+    <script>
+        // TẠO SAO
+        const stars = 400;
+        for (let i = 0; i < stars; i++) {
+            const star = document.createElement("div");
+            star.className = 'stars';
+            const xy = randomPosition();
+            star.style.top = xy[0] + 'px';
+            star.style.left = xy[1] + 'px';
+            document.body.append(star);
+        }
+
+        function randomPosition() {
+            const y = window.innerWidth;
+            const x = window.innerHeight;
+            return [
+                Math.floor(Math.random() * x),
+                Math.floor(Math.random() * y)
+            ];
+        }
+
+        // PHÁT NHẠC KHI BẮT ĐẦU
+        window.onload = () => {
+            const audio = document.getElementById("bgm");
+            audio.play().catch(() => {
+                // Trình duyệt chặn autoplay → bật khi click
+                document.body.addEventListener("click", () => {
+                    audio.play();
+                }, { once: true });
+            });
+        };
+    </script>
+
+</body>
+</html>

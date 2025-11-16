@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 4 – Quang phổ vạch hấp thụ</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: transparent;
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* TEXT left middle */
+    #text-box {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      width: 40%;
+      font-size: 130%;
+      line-height: 1.7;
+    }
+
+    .sub-title {
+      font-size: 180%;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.9);
+    }
+
+    /* Image right middle */
+    .right-image {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 40%;
+      max-width: 500px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 14px rgba(255,255,255,0.6));
+    }
+
+    /* ANIM: chữ tan biến */
+    .char {
+      display: inline-block;
+      opacity: 1;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .char.fade {
+      opacity: 0;
+      transform: translateY(-20px) rotate(10deg);
+      filter: blur(3px);
+    }
+
+    /* mỗi dòng */
+    .line {
+      display: block;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="text-box">
+    <div class="sub-title">IV. Quang phổ vạch hấp thụ</div>
+    <div id="content"></div>
+  </div>
+
+  <!-- dùng lại ảnh cũ -->
+  <img src="quangphovachphatxa.jpg" class="right-image">
+
+  <script>
+    const content = document.getElementById("content");
+
+    // Mỗi section là 1 slide chữ
+    const sections = [
+
+      /* ===== 1. ĐỊNH NGHĨA ===== */
+      [
+        "1. Định nghĩa",
+        "Là quang phổ có các vạch tối trên nền quang phổ liên tục.",
+        "Xuất hiện khi khí/hơi nguyên tố hấp thụ photon có bước sóng xác định.",
+        "→ Photon bị mất khỏi chùm sáng → tạo vạch tối."
+      ],
+
+      /* ===== 2. CƠ CHẾ ===== */
+      [
+        "2. Cơ chế hình thành",
+        "Nguồn sáng liên tục phát nhiều bước sóng.",
+        "Ánh sáng đi qua khí/hơi nguyên tố ở nhiệt độ thấp hơn.",
+        "Nguyên tử hấp thụ photon đúng năng lượng chuyển mức.",
+        "Photon bị mất → trên phổ xuất hiện vạch tối.",
+        "Vị trí vạch hấp thụ trùng vị trí vạch phát xạ của nguyên tử."
+      ],
+
+      /* ===== 3. ĐẶC ĐIỂM ===== */
+      [
+        "3. Đặc điểm",
+        "• Vạch tối nằm đúng nơi các vạch sáng nếu nguyên tử đó phát xạ.",
+        "• Cần nguồn sáng liên tục + lớp khí hấp thụ ở áp suất thấp.",
+        "• Mỗi nguyên tố có bộ vạch hấp thụ đặc trưng."
+      ],
+
+      /* ===== 4. ỨNG DỤNG ===== */
+      [
+        "4. Ứng dụng",
+        "• Dùng xác định nguyên tố trong đám khí (khí quyển sao...).",
+        "• Trong thiên văn: phân tích ánh sáng mặt trời để biết thành phần khí.",
+        "• Phân tích hóa học bằng hấp thụ nguyên tử (AAS)."
+      ]
+    ];
+
+    let index = 0;
+
+    function renderText(lines) {
+      content.innerHTML = "";
+
+      lines.forEach(line => {
+        const lineDiv = document.createElement("div");
+        lineDiv.className = "line";
+
+        for (let char of line) {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.innerHTML = char === " " ? "&nbsp;" : char;
+          lineDiv.appendChild(span);
+        }
+
+        content.appendChild(lineDiv);
+      });
+    }
+
+    // hiện slide đầu tiên
+    renderText(sections[0]);
+
+    // hiệu ứng đổi slide
+    document.body.addEventListener("click", () => {
+      const chars = document.querySelectorAll(".char");
+
+      // tan biến chữ hiện tại
+      chars.forEach((c, i) => {
+        setTimeout(() => c.classList.add("fade"), i * 8);
+      });
+
+      // đổi slide sau khi tan xong
+      setTimeout(() => {
+        index = (index + 1) % sections.length;
+        renderText(sections[index]);
+      }, chars.length * 8 + 500);
+    });
+  </script>
+
+</body>
+</html>

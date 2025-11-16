@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 2</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: transparent;
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      font-size: 150%;
+      line-height: 1.7;
+      position: relative;
+      min-height: 100vh;
+      box-sizing: border-box;
+      cursor: pointer;   /* để biết rằng có thể click */
+    }
+
+    /* TITLE đặt giữa trên (upper centre) */
+    h1 {
+      font-size: 220%;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.85);
+      font-weight: bold;
+      pointer-events: none;
+    }
+
+    /* Dòng nội dung ẩn ban đầu */
+    .hidden-line {
+      opacity: 0;
+      filter: blur(18px);
+      transform: translateY(20px) scale(1.15);
+      transition: opacity 1s ease, filter 1.2s ease, transform 1.2s ease;
+      pointer-events: none;
+    }
+
+    /* Hiện ra → bụi gom lại thành chữ */
+    .show-line {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0) scale(1);
+    }
+
+    /* Ảnh đặt ở giữa phía dưới */
+    .bottom-image {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55%;
+      max-width: 500px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.6));
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>II. Tổng Quan</h1>
+
+  <ul>
+    <li id="line1" class="hidden-line">
+      <b>Nhắc lại nhanh:</b> ánh sáng khi truyền qua lăng kính hoặc lưới nhiễu xạ sẽ tách thành các màu — ta có
+      <i>quang phổ</i>.
+    </li>
+
+    <li id="line2" class="hidden-line">
+      <b>Fact:</b> ngoài quang phổ liên tục, còn có <b>quang phổ vạch phát xạ</b> và
+      <b>quang phổ vạch hấp thụ</b> — rất quan trọng trong vật lí nguyên tử.
+    </li>
+
+    <li id="line3" class="hidden-line">
+      <b>Mục tiêu:</b> tìm hiểu rõ hai loại quang phổ vạch này, cơ chế hình thành, đặc điểm, so sánh và ứng dụng.
+    </li>
+  </ul>
+
+  <img src="quangpho1.png" class="bottom-image" />
+
+  <script>
+    let step = 0;
+    const lines = [
+      document.getElementById("line1"),
+      document.getElementById("line2"),
+      document.getElementById("line3")
+    ];
+
+    document.body.addEventListener("click", () => {
+      if (step < lines.length) {
+        lines[step].classList.add("show-line");
+        step++;
+      }
+    });
+  </script>
+
+</body>
+</html>

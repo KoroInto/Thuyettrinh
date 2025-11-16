@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 7</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: transparent;
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      font-size: 125%;
+      line-height: 1.7;
+      position: relative;
+      height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Container phân 2 cột */
+    .wrapper {
+      width: 90%;
+      height: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Câu hỏi bên trái */
+    .text-box {
+      width: 50%;
+      padding-left: 20px;
+    }
+
+    h1 {
+      font-size: 210%;
+      margin-bottom: 20px;
+      text-shadow: 0 0 14px rgba(255,255,255,0.85);
+      font-weight: bold;
+    }
+
+    .line {
+      opacity: 1;
+      margin-bottom: 14px;
+    }
+
+    /* đáp án ẩn trước */
+    #answer {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
+      margin-top: 20px;
+      width: 70%;
+      max-width: 420px;
+      display: block;
+    }
+    #answer.show {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0px);
+    }
+
+    /* ảnh minh hoạ bên phải */
+    .right-image {
+      width: 40%;
+      max-width: 420px;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+      opacity: 0.95;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- LEFT TEXT -->
+    <div class="text-box">
+      <h1>VII. Bài Tập</h1>
+
+      <div class="line" id="question">
+        Hãy xác định bước sóng của photon phát ra khi electron trong nguyên tử hydrogen
+        chuyển từ mức năng lượng … về mức năng lượng …. <br><br>
+        Bước sóng của photon ứng với vạch của quang phổ nào trong hình Hình 11.4?
+      </div>
+
+      <!-- Đáp án (ẩn trước) -->
+      <img id="answer" src="dapan.png" />
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <img src="hinh114.png" class="right-image" />
+
+  </div>
+
+  <script>
+    const answer = document.getElementById("answer");
+    let shown = false;
+
+    document.body.addEventListener("click", () => {
+      if (shown) return;
+      shown = true;
+
+      answer.classList.add("show");
+    });
+  </script>
+
+</body>
+</html>

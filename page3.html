@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 3 – Quang phổ vạch phát xạ</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: transparent;
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* TEXT left middle */
+    #text-box {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      width: 40%;
+      font-size: 130%;
+      line-height: 1.7;
+    }
+
+    .sub-title {
+      font-size: 180%;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.9);
+    }
+
+    /* Image right middle */
+    .right-image {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 40%;
+      max-width: 500px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 14px rgba(255,255,255,0.6));
+    }
+
+    /* ANIM: chữ bay tan */
+    .char {
+      display: inline-block;
+      opacity: 1;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .char.fade {
+      opacity: 0;
+      transform: translateY(-20px) rotate(10deg);
+      filter: blur(3px);
+    }
+
+    /* Xuống dòng */
+    .line {
+      display: block;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="text-box">
+    <div class="sub-title">III. Quang phổ vạch phát xạ</div>
+    <div id="content"></div>
+  </div>
+
+  <img src="quangphovachphatxa.jpg" class="right-image">
+
+  <script>
+    const content = document.getElementById("content");
+
+    // Dữ liệu mỗi mục: chia thành các dòng riêng (mỗi dòng là 1 string)
+    const sections = [
+      [
+        "1. Định nghĩa",
+        "Là loại quang phổ có các vạch sáng riêng rẽ trên nền tối.",
+        "Xuất hiện khi nguyên tử hoặc phân tử bị kích thích phát ra ánh sáng."
+      ],
+
+      [
+        "2. Cơ chế hình thành",
+        "Nguyên tử nhận năng lượng → electron nhảy lên mức cao.",
+        "Khi electron trở về mức thấp → phát photon có bước sóng xác định.",
+        "→ Tạo vạch sáng đặc trưng."
+      ],
+
+      [
+        "3. Đặc điểm",
+        "• Mỗi nguyên tố có bộ vạch phát xạ đặc trưng.",
+        "• Vạch sắc nét, tách biệt.",
+        "• Thường gặp ở khí hoặc hơi áp suất thấp được kích thích bằng nhiệt/điện."
+      ],
+
+      [
+        "4. Ứng dụng",
+        "• Phân tích thành phần nguyên tố.",
+        "• Xác định nồng độ qua cường độ vạch phát xạ.",
+        "• Dùng trong đèn hơi, màn hình… (ví dụ: Na cho màu vàng đặc trưng)."
+      ]
+    ];
+
+    let index = 0;
+
+    // Hàm render từng ký tự + từng dòng
+    function renderText(lines) {
+      content.innerHTML = "";
+
+      lines.forEach(line => {
+        const lineDiv = document.createElement("div");
+        lineDiv.className = "line";
+
+        for (let char of line) {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.innerHTML = char === " " ? "&nbsp;" : char;
+          lineDiv.appendChild(span);
+        }
+
+        content.appendChild(lineDiv);
+      });
+    }
+
+    // Hiện đoạn 1
+    renderText(sections[0]);
+
+    // Click đổi đoạn với anim tan biến chữ
+    document.body.addEventListener("click", () => {
+      const chars = document.querySelectorAll(".char");
+
+      // Giai đoạn 1: chữ tan biến
+      chars.forEach((c, i) => {
+        setTimeout(() => {
+          c.classList.add("fade");
+        }, i * 8);
+      });
+
+      // Giai đoạn 2: sau khi tan xong thì đổi text
+      setTimeout(() => {
+        index = (index + 1) % sections.length;
+        renderText(sections[index]);
+      }, chars.length * 8 + 500);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page 1</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Title giống page1 */
+    h1 {
+      margin-top: 40px;
+      font-size: 34px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Khung chứa ảnh để không chạm vào title */
+    .image-wrapper {
+      margin-top: 30px;
+      width: 90vw;         /* tối đa 90% width màn hình */
+      max-width: 900px;    /* không vượt 900px */
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      height: auto;        /* scale theo tỉ lệ ảnh */
+      object-fit: contain; /* bảo đảm không méo, không đụng title */
+      border-radius: 10px; /* nhẹ nhàng cho đẹp */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I. Hình ảnh về quang phổ</h1>
+
+  <div class="image-wrapper">
+    <img src="quangpho.jpg" alt="Quang Pho" />
+  </div>
+
+</body>
+</html>

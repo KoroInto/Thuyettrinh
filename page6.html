@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 6</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: transparent;
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      font-size: 135%;
+      line-height: 1.7;
+      position: relative;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 220%;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.85);
+      font-weight: bold;
+    }
+
+    .line {
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+      margin-bottom: 16px;
+    }
+
+    .line.show {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>VI. Giải thích theo mô hình nguyên tử</h1>
+
+  <div id="text-container">
+    <div class="line">Theo mô hình Niels Bohr, electron chuyển giữa các mức năng lượng rời rạc.</div>
+
+    <div class="line">Khi electron nhảy từ mức cao xuống mức thấp → phát photon → tạo quang phổ vạch phát xạ.</div>
+
+    <div class="line">Khi ánh sáng có photon năng lượng đúng tới nguyên tử → electron nhảy lên → photon bị hấp thụ → tạo vạch tối.</div>
+
+    <div class="line">Vì thế mỗi nguyên tố có bộ vạch đặc trưng vì mức năng lượng của chúng là cố định.</div>
+  </div>
+
+  <script>
+    const lines = document.querySelectorAll(".line");
+    let index = 0;
+    let running = false;
+
+    document.body.addEventListener("click", () => {
+      if (running) return;
+      running = true;
+
+      const line = lines[index];
+      if (line) {
+        line.classList.add("show");
+        index++;
+        setTimeout(() => running = false, 400);
+      }
+    });
+  </script>
+
+</body>
+</html>
