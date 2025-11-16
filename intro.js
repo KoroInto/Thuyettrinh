@@ -178,6 +178,11 @@ setTimeout(() => {
 ================================ */
 function triggerGalaxyExitEffect() {
 
+  /* 🔊 Play sound portal.mp3 (không loop) */
+  const portalSound = new Audio("portal.mp3");
+  portalSound.volume = 1.0;
+  portalSound.play().catch(()=>{});
+
   const flash = document.createElement("div");
   flash.id = "flash-screen";
   flash.style.cssText = `
