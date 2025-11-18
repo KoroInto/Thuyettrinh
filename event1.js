@@ -2,15 +2,15 @@
 
 // Danh sách thời điểm & tên file ảnh
 const events = [
-    { time: 30,  file: "1.png" },
+    { time: 400,  file: "1.png" },
     { time: 45,  file: "2.png" },
-    { time: 60,  file: "3.png" },
+    { time: 300,  file: "3.png" },
     { time: 75,  file: "4.png" },
     { time: 90,  file: "5.png" },
-    { time: 105, file: "6.png" },
+    { time: 195, file: "6.png" },
     { time: 120, file: "7.png" },
     { time: 160, file: "8.png" },
-    { time: 200, file: "9.png" },
+    { time: 280, file: "9.png" },
     { time: 240, file: "10.png" }
 ];
 
