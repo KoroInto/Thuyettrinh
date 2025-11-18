@@ -51,7 +51,7 @@
             font-size: 3.25rem;
             width: 80%;
             opacity: 0;
-            animation: intro 10s ease-out 1s;
+            animation: intro 6s ease-out 0.5s;
             text-align: center;
         }
 
@@ -70,7 +70,7 @@
             z-index: 2;
             width: 100%;
             opacity: 0;
-            animation: logo 14s ease-out 12s;
+            animation: logo 14s ease-out 7s;
         }
 
         .logo img {
@@ -111,7 +111,7 @@
         #content {
             position: absolute;
             top: 100%;
-            animation: scroller 240s linear 28s;
+            animation: scroller 240s linear 16s;
         }
 
         @keyframes scroller {
@@ -133,7 +133,7 @@
 
 <body>
 
-    <!-- NHẠC STAR WARS – TỰ CHẠY, KHÔNG LOOP -->
+    <!-- NHẠC STAR WARS – KHÔNG PHÁT NGAY -->
     <audio id="bgm" src="Starwar.mp3"></audio>
 
     <section class="intro">
@@ -151,10 +151,7 @@
             <p id="subtitle">CREDITS</p>
             <br><br>
 
-            <!-- ==================================== -->
-            <!--               CREDIT TEXT             -->
-            <!-- ==================================== -->
-
+            <!-- CREDIT TEXT -->
             <p><b>1. Ban Điều Hành & Quản Lý</b><br><br>
             Tổng sản xuất: Nguyễn Tấn Tiệp<br>
             Đồng sản xuất: Model K2-65B (LLM360 K2)<br>
@@ -293,16 +290,15 @@
             ];
         }
 
-        // PHÁT NHẠC KHI BẮT ĐẦU
-        window.onload = () => {
+        // CHỈ BẬT NHẠC KHI LOGO.XUẤT HIỆN (12s)
+        setTimeout(() => {
             const audio = document.getElementById("bgm");
             audio.play().catch(() => {
-                // Trình duyệt chặn autoplay → bật khi click
                 document.body.addEventListener("click", () => {
                     audio.play();
                 }, { once: true });
             });
-        };
+        }, 7000);
     </script>
 
 </body>
