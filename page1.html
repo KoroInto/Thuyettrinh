@@ -9,37 +9,51 @@
     body {
       margin: 0;
       padding: 0;
-      background: #0d0d0d;
       font-family: Arial, sans-serif;
+
+      /* ⭐ Background blur giống page2 ⭐ */
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
+
+      /* Cho giống style chữ page2 */
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
     }
 
-    /* Title giống page1 */
+    /* Title giống page2 */
     h1 {
       margin-top: 40px;
-      font-size: 34px;
+      font-size: 220%;
       text-align: center;
       font-weight: 700;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.85);
+      pointer-events: none;
     }
 
-    /* Khung chứa ảnh để không chạm vào title */
+    /* Khung chứa ảnh */
     .image-wrapper {
-      margin-top: 30px;
-      width: 90vw;         /* tối đa 90% width màn hình */
-      max-width: 900px;    /* không vượt 900px */
-      height: auto;
+      margin-top: 40px;
+      width: 90vw;
+      max-width: 900px;
       display: flex;
       justify-content: center;
+      padding-bottom: 40px;
     }
 
     .image-wrapper img {
       max-width: 100%;
-      height: auto;        /* scale theo tỉ lệ ảnh */
-      object-fit: contain; /* bảo đảm không méo, không đụng title */
-      border-radius: 10px; /* nhẹ nhàng cho đẹp */
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+
+      /* Glow nhẹ giống page2 */
+      filter: drop-shadow(0 0 14px rgba(255,255,255,0.55));
     }
   </style>
 </head>
